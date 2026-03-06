@@ -1,0 +1,10 @@
+name: p-14139-4
+services:
+  redis_1:
+    image: redis:latest
+    container_name: redis_1
+    ports:
+      - "6379:6379"
+    environment:
+      TZ: Asia/Seoul
+    command: redis-server --maxmemory 50mb --maxmemory-policy allkeys-lru --requirepass lldj123414

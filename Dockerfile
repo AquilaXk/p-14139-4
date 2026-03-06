@@ -14,8 +14,9 @@ RUN gradle dependencies --no-daemon || true
 # 소스 복사
 COPY src ./src
 
-# 빌드
-RUN gradle build --no-daemon
+# 테스트용 Redis 설치 & 빌드
+RUN apt-get update && apt-get install -y --no-install-recommends redis-server && rm -rf /var/lib/apt/lists/*
+RUN redis-server --daemonize yes --requirepass lldj123414 && gradle build --no-daemon
 
 # =========================
 # 2️⃣ Layer Extract Stage

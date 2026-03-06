@@ -1,4 +1,7 @@
 spring:
+  data:
+    redis:
+      database: 1
   datasource:
     url: jdbc:h2:mem:db_test;MODE=MySQL
     username: sa
