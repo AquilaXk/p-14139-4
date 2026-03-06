@@ -13,6 +13,7 @@ RUN gradle dependencies --no-daemon || true
 
 # 소스 복사
 COPY src ./src
+COPY .env ./.env
 
 # 테스트용 Redis 설치 & 빌드
 RUN apt-get update && apt-get install -y --no-install-recommends redis-server && rm -rf /var/lib/apt/lists/*
